@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Headers,
   HttpException,
   Param,
   Post,
@@ -59,9 +60,9 @@ export class ShopController {
     };
   }
   @Post('/checkout')
-  async postcheckout(@Body() body) {
+  async postcheckout(@Body() body, @Req() req, @Headers() headers: Headers) {
     let payload = { ...body, currency: 'USD' };
-    Response = await this.ShopService.checkout(payload);
+    Response = await this.ShopService.checkout(payload, headers);
 
     return {
       type: 'success',

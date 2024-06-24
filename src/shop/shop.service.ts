@@ -28,7 +28,7 @@ export class ShopService {
     }
   }
 
-  async checkout(DocumentData: any): Promise<any> {
+  async checkout(DocumentData: any, header: any): Promise<any> {
     let sumAmount = 0;
     let lineitem = DocumentData.products.map((product) => ({
       price_data: {
@@ -52,8 +52,8 @@ export class ShopService {
 
       line_items: lineitem,
       mode: 'payment',
-      success_url: 'http://127.0.0.1:3000/',
-      cancel_url: 'http://127.0.0.1:3000/',
+      success_url: header.origin,
+      cancel_url: header.origin,
     });
     return session.id;
   }
