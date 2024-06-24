@@ -1,0 +1,7 @@
+---
+ENV: STAGING
+SERVER:
+  name: Company Service
+  port: 5001
+MONGO_AUTH:
+  database: mongodb+srv://gopikrishna49107:QsINAUvRiOZSS3l6@cluster0.qaz0mvz.mongodb.net/rentel
